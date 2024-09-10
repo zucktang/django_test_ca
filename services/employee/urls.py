@@ -3,11 +3,12 @@ from rest_framework.routers import DefaultRouter
 from .api import EmployeeViewSet, PositionViewSet, DepartmentViewSet, StatusViewSet
 
 router = DefaultRouter()
-router.register(r'employees', EmployeeViewSet)
-router.register(r'positions', PositionViewSet)
-router.register(r'departments', DepartmentViewSet)
-router.register(r'statuses', StatusViewSet)
+router.register(r'position', PositionViewSet)
+router.register(r'department', DepartmentViewSet)
+router.register(r'status', StatusViewSet)
+router.register(r'employee', EmployeeViewSet)
+
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]

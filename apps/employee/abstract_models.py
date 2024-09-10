@@ -6,7 +6,7 @@ from core.models import BaseModel
 class AbstractEmployee(BaseModel):
     name = models.CharField(max_length=255)
     address = models.TextField()
-    manager = models.BooleanField(default=False)
+    is_manager = models.BooleanField(default=False)
     status = models.ForeignKey(
         'employee.Status', 
         on_delete=models.CASCADE, 
