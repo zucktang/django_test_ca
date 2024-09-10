@@ -12,7 +12,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['position', 'department', 'status']
-    search_fields = ['name', 'address']
+    search_fields = ['position__name', 'department__name', 'status__name']
     ACTION_SERIALIZERS = {
         'list': EmployeeSerializer, 
         'retrieve': EmployeeSerializer,

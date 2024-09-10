@@ -4,7 +4,7 @@ from core.models import BaseModel
 
 
 class AbstractEmployee(BaseModel):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     address = models.TextField()
     is_manager = models.BooleanField(default=False)
     status = models.ForeignKey(
@@ -35,7 +35,7 @@ class AbstractEmployee(BaseModel):
         abstract = True
 
 class AbstractStatus(BaseModel):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
@@ -52,9 +52,10 @@ class AbstractPosition(BaseModel):
     
     class Meta:
         abstract = True
+        unique_together = ('name', 'salary')
     
 class AbstractDepartment(BaseModel):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     manager = models.ForeignKey(
         'employee.Employee', 
         on_delete=models.CASCADE, 
