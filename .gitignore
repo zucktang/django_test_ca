@@ -1,0 +1,4 @@
+# settings/dev.py
+# settings/prod.py
+*.pyc
+__pycache__/
