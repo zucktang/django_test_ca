@@ -9,17 +9,17 @@ class AbstractEmployee(BaseModel):
     is_manager = models.BooleanField(default=False)
     status = models.ForeignKey(
         'employee.Status', 
-        on_delete=models.CASCADE, 
+        on_delete=models.SET_NULL, 
         null=True
     )
     position = models.ForeignKey(
         'employee.Position', 
-        on_delete=models.CASCADE, 
+        on_delete=models.SET_NULL, 
         null=True
     )
     department = models.ForeignKey(
         'employee.Department', 
-        on_delete=models.CASCADE, 
+        on_delete=models.SET_NULL, 
         null=True
     )
     image = models.ImageField(

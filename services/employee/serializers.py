@@ -75,5 +75,3 @@ class EmployeeSerializer(serializers.ModelSerializer):
         if obj.status:
             return StatusSerializer(obj.status).data
         return None
-
-    
